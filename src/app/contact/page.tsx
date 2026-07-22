@@ -37,10 +37,10 @@ export default function ContactPage() {
             className="lg:col-span-2 space-y-8"
           >
             {/* Keyboard Animation */}
-            <div className="w-full flex justify-center items-center h-[300px] bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm rounded-3xl overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 pointer-events-none" />
+            <div className="w-full flex justify-center items-center min-h-[400px] bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm rounded-3xl overflow-visible relative p-4">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 pointer-events-none rounded-3xl" />
               <TypingKeyboard 
-                scale={0.55} 
+                scale={0.45} 
                 autoTypeText="HELLO... ARE YOU READY TO BUILD SOMETHING EXTRAORDINARY? LET'S GET IN TOUCH.     "
                 accentColor="#8b5cf6" 
                 secondaryAccent="#3b82f6" 
