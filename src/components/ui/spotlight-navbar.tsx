@@ -4,8 +4,10 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { animate } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Sparkles } from "lucide-react"; // Import a cool icon for the logo
+import { Sparkles } from "lucide-react";
 import AnimatedButton from "./animated-button";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export interface NavItem {
     label: string;
@@ -21,18 +23,20 @@ export interface SpotlightNavbarProps {
 
 export function SpotlightNavbar({
     items = [
-        { label: "Home", href: "#home" },
-        { label: "Services", href: "#services" },
-        { label: "Work", href: "#work" },
-        { label: "About", href: "#about" },
-        { label: "Contact", href: "#contact" },
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Work", href: "/work" },
+        { label: "About", href: "/about" },
+        { label: "Contact", href: "/contact" },
     ],
     className,
-    onItemClick,
-    defaultActiveIndex = 0,
 }: SpotlightNavbarProps) {
     const navRef = useRef<HTMLDivElement>(null);
-    const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
+    const pathname = usePathname();
+    const activeIndex = items.findIndex((item) => item.href === pathname) !== -1 
+        ? items.findIndex((item) => item.href === pathname) 
+        : 0;
+    
     const [hoverX, setHoverX] = useState<number | null>(null);
 
     const spotlightX = useRef(0);
@@ -101,11 +105,6 @@ export function SpotlightNavbar({
         }
     }, [activeIndex]);
 
-    const handleItemClick = (item: NavItem, index: number) => {
-        setActiveIndex(index);
-        onItemClick?.(item, index);
-    };
-
     return (
         <header className={cn("fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-12 transition-all", className)}>
             {/* Logo */}
@@ -131,13 +130,9 @@ export function SpotlightNavbar({
                     <ul className="relative flex items-center h-full px-2 gap-1 z-[10]">
                         {items.map((item, idx) => (
                             <li key={idx} className="relative h-full flex items-center justify-center">
-                                <a
+                                <Link
                                     href={item.href}
                                     data-index={idx}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        handleItemClick(item, idx);
-                                    }}
                                     className={cn(
                                         "px-5 py-2 text-sm font-medium transition-colors duration-200 rounded-full",
                                         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30",
@@ -147,7 +142,7 @@ export function SpotlightNavbar({
                                     )}
                                 >
                                     {item.label}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>

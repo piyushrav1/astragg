@@ -2,10 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
-import { SpotlightNavbar } from "@/components/ui/spotlight-navbar";
 import Galaxy from "@/components/Galaxy";
 import WorkGlimpse from "@/components/WorkGlimpse";
-import Footer from "@/components/Footer";
 import { TestimonialsCard } from "@/components/ui/testimonials-card";
 
 const containerVariants: Variants = {
@@ -56,16 +54,6 @@ export default function Home() {
             />
           </div>
         </div>
-
-        {/* Navbar */}
-        <motion.div
-          initial={{ y: -100 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="z-50"
-        >
-          <SpotlightNavbar />
-        </motion.div>
 
         {/* Hero Content (Scroll Parallax Container) */}
         <motion.div 
@@ -158,9 +146,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Custom Footer */}
-      <Footer />
     </>
   );
 }
