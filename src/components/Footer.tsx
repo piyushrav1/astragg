@@ -139,8 +139,8 @@ export default function Footer() {
             </a>
           </p>
           <div className="flex gap-6">
-            <Link href="#" className="text-neutral-600 hover:text-neutral-300 transition-colors text-sm">Privacy Policy</Link>
-            <Link href="#" className="text-neutral-600 hover:text-neutral-300 transition-colors text-sm">Terms of Service</Link>
+            <Link href="/privacy" className="text-neutral-600 hover:text-neutral-300 transition-colors text-sm">Privacy Policy</Link>
+            <Link href="/terms" className="text-neutral-600 hover:text-neutral-300 transition-colors text-sm">Terms of Service</Link>
           </div>
         </div>
       </div>
