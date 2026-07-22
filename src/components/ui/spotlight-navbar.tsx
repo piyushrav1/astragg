@@ -124,17 +124,17 @@ export function SpotlightNavbar({
                     className={cn(
                         "spotlight-nav spotlight-nav-bg glass-border",
                         "relative h-12 rounded-full transition-all duration-300 overflow-hidden",
-                        "bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
+                        "bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)] max-w-[55vw] md:max-w-none"
                     )}
                 >
-                    <ul className="relative flex items-center h-full px-2 gap-1 z-[10]">
+                    <ul className="relative flex items-center h-full px-1 md:px-2 gap-0 md:gap-1 z-[10] overflow-x-auto overflow-y-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                         {items.map((item, idx) => (
                             <li key={idx} className="relative h-full flex items-center justify-center">
                                 <Link
                                     href={item.href}
                                     data-index={idx}
                                     className={cn(
-                                        "px-5 py-2 text-sm font-medium transition-colors duration-200 rounded-full",
+                                        "px-3 md:px-5 py-2 text-xs md:text-sm font-medium transition-colors duration-200 rounded-full whitespace-nowrap",
                                         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30",
                                         activeIndex === idx
                                             ? "text-white"
@@ -192,6 +192,9 @@ export function SpotlightNavbar({
             nav {
               --spotlight-color: rgba(255, 255, 255, 0.15); /* Monochromatic tint */
               --ambience-color: rgba(255, 255, 255, 1);
+            }
+            ul::-webkit-scrollbar {
+              display: none;
             }
           `}</style>
         </header>
