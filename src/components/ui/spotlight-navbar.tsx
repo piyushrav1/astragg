@@ -106,7 +106,7 @@ export function SpotlightNavbar({
     }, [activeIndex]);
 
     return (
-        <header className={cn("fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-12 transition-all", className)}>
+        <header className={cn("fixed top-0 left-0 right-0 z-50 flex flex-col md:flex-row items-center justify-between px-4 md:px-12 py-4 gap-4 md:gap-0 transition-all", className)}>
             {/* Logo */}
             <div className="flex items-center gap-2 cursor-pointer group">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neutral-600 to-neutral-300 flex items-center justify-center shadow-lg shadow-neutral-500/20 group-hover:shadow-neutral-500/40 transition-shadow">
@@ -118,13 +118,13 @@ export function SpotlightNavbar({
             </div>
 
             {/* Nav */}
-            <div className="flex-1 flex justify-center">
+            <div className="w-full md:flex-1 flex justify-center">
                 <nav
                     ref={navRef}
                     className={cn(
                         "spotlight-nav spotlight-nav-bg glass-border",
                         "relative h-12 rounded-full transition-all duration-300 overflow-hidden",
-                        "bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)] max-w-[55vw] md:max-w-none"
+                        "bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)] w-full md:w-auto"
                     )}
                 >
                     <ul className="relative flex items-center h-full px-1 md:px-2 gap-0 md:gap-1 z-[10] overflow-x-auto overflow-y-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
