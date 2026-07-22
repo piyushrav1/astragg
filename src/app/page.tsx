@@ -6,6 +6,7 @@ import { SpotlightNavbar } from "@/components/ui/spotlight-navbar";
 import Galaxy from "@/components/Galaxy";
 import WorkGlimpse from "@/components/WorkGlimpse";
 import Footer from "@/components/Footer";
+import ProfileCard from "@/components/ProfileCard";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -121,6 +122,40 @@ export default function Home() {
         <WorkGlimpse />
       </div>
       
+      {/* Meet Our Team Section */}
+      <section className="relative z-20 bg-background py-24 pb-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold font-heading text-white mb-4">Meet Our Team</h2>
+            <p className="text-neutral-400 max-w-xl mx-auto">The brilliant minds behind AstraGG's innovative digital experiences.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+            <ProfileCard 
+              name="Alex Chen"
+              title="Founder & CEO"
+              handle="alexc"
+              status="Online"
+              avatarUrl="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+            />
+            <ProfileCard 
+              name="Sarah Jenkins"
+              title="Creative Director"
+              handle="sarahj"
+              status="In a meeting"
+              avatarUrl="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+            />
+            <ProfileCard 
+              name="Marcus Rivera"
+              title="Lead Developer"
+              handle="mrivera"
+              status="Coding"
+              avatarUrl="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Custom Footer */}
       <Footer />
     </>
