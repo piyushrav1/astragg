@@ -127,7 +127,7 @@ export function SpotlightNavbar({
                         "bg-white/5 border border-white/10 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.1)] w-full md:w-auto"
                     )}
                 >
-                    <ul className="relative flex items-center h-full px-1 md:px-2 gap-0 md:gap-1 z-[10] overflow-x-auto overflow-y-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                    <ul className="relative flex items-center justify-center w-full h-full px-1 md:px-2 gap-0 md:gap-1 z-[10] overflow-x-auto overflow-y-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                         {items.map((item, idx) => (
                             <li key={idx} className="relative h-full flex items-center justify-center">
                                 <Link
