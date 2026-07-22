@@ -67,50 +67,63 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]"
+            className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 min-h-[600px] auto-rows-[300px] md:auto-rows-auto"
           >
-            {/* Bento Box 1 */}
-            <motion.div variants={fadeUpVariants} className="md:col-span-2 bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden group hover:bg-white/[0.04] transition-colors">
-              <div className="absolute -right-20 -top-20 w-64 h-64 bg-purple-500/10 rounded-full blur-[60px] group-hover:bg-purple-500/20 transition-colors" />
+            {/* Bento Box 1 - Hero Size */}
+            <motion.div variants={fadeUpVariants} className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-neutral-900 to-black border border-white/10 rounded-[2rem] p-8 md:p-12 relative overflow-hidden group">
+              {/* Animated Background Blob */}
+              <div className="absolute -inset-x-20 -top-20 h-[300px] bg-purple-500/20 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              {/* Large Background Typography */}
+              <span className="absolute -bottom-10 -right-10 text-[15rem] font-bold text-white/[0.02] leading-none select-none group-hover:text-purple-500/[0.05] transition-colors duration-700">01</span>
+              
               <div className="relative z-10 h-full flex flex-col justify-between">
-                <Rocket className="w-10 h-10 text-purple-400 mb-4" />
-                <div>
-                  <h3 className="text-3xl font-heading font-bold text-white mb-2">Relentless Innovation</h3>
-                  <p className="text-neutral-400">We refuse to be stagnant. We utilize bleeding-edge technologies like Next.js, Framer Motion, and Turbopack to keep you ahead of the curve.</p>
+                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform duration-500 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]">
+                  <Rocket className="w-8 h-8" />
+                </div>
+                <div className="mt-auto pt-12">
+                  <h3 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Relentless Innovation</h3>
+                  <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+                    We refuse to be stagnant. We utilize bleeding-edge technologies like Next.js, Framer Motion, and Turbopack to keep you ahead of the curve. Innovation isn't a buzzword; it's our baseline.
+                  </p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Bento Box 2 */}
-            <motion.div variants={fadeUpVariants} className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden group hover:bg-white/[0.04] transition-colors">
+            {/* Bento Box 2 - Small */}
+            <motion.div variants={fadeUpVariants} className="md:col-span-1 md:row-span-1 bg-black border border-white/10 rounded-[2rem] p-8 relative overflow-hidden group shadow-[inset_0_0_40px_rgba(255,255,255,0.02)]">
+              <span className="absolute -top-4 -right-4 text-[8rem] font-bold text-white/[0.02] leading-none select-none">02</span>
               <div className="relative z-10 h-full flex flex-col justify-between">
-                <Zap className="w-10 h-10 text-blue-400 mb-4" />
+                <Zap className="w-8 h-8 text-blue-400 mb-6 group-hover:-translate-y-2 transition-transform duration-500" />
                 <div>
                   <h3 className="text-2xl font-heading font-bold text-white mb-2">Performance First</h3>
-                  <p className="text-neutral-400">Every millisecond counts. We optimize fiercely.</p>
+                  <p className="text-neutral-500 text-sm">Every millisecond counts. We optimize fiercely for speed.</p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Bento Box 3 */}
-            <motion.div variants={fadeUpVariants} className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden group hover:bg-white/[0.04] transition-colors">
+            {/* Bento Box 3 - Small */}
+            <motion.div variants={fadeUpVariants} className="md:col-span-1 md:row-span-1 bg-black border border-white/10 rounded-[2rem] p-8 relative overflow-hidden group shadow-[inset_0_0_40px_rgba(255,255,255,0.02)]">
+              <span className="absolute -top-4 -right-4 text-[8rem] font-bold text-white/[0.02] leading-none select-none">03</span>
               <div className="relative z-10 h-full flex flex-col justify-between">
-                <Layers className="w-10 h-10 text-pink-400 mb-4" />
+                <Layers className="w-8 h-8 text-pink-400 mb-6 group-hover:-translate-y-2 transition-transform duration-500" />
                 <div>
                   <h3 className="text-2xl font-heading font-bold text-white mb-2">Cinematic UI</h3>
-                  <p className="text-neutral-400">Design that evokes emotion.</p>
+                  <p className="text-neutral-500 text-sm">Design that evokes emotion and captures attention.</p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Bento Box 4 */}
-            <motion.div variants={fadeUpVariants} className="md:col-span-2 bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden group hover:bg-white/[0.04] transition-colors">
-              <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-blue-500/10 rounded-full blur-[60px] group-hover:bg-blue-500/20 transition-colors" />
-              <div className="relative z-10 h-full flex flex-col justify-between">
-                <Heart className="w-10 h-10 text-red-400 mb-4" />
+            {/* Bento Box 4 - Wide */}
+            <motion.div variants={fadeUpVariants} className="md:col-span-2 md:row-span-1 bg-gradient-to-tr from-neutral-900 to-black border border-white/10 rounded-[2rem] p-8 md:p-10 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <span className="absolute bottom-0 right-4 text-[12rem] font-bold text-white/[0.02] leading-none select-none translate-y-1/4">04</span>
+              <div className="relative z-10 h-full flex flex-col md:flex-row md:items-center justify-between gap-8">
                 <div>
-                  <h3 className="text-3xl font-heading font-bold text-white mb-2">Client Obsession</h3>
-                  <p className="text-neutral-400">Your success is our success. We partner with you at every step, offering radical transparency and unwavering dedication to your vision.</p>
+                  <div className="flex items-center gap-4 mb-4">
+                    <Heart className="w-8 h-8 text-red-400" />
+                    <h3 className="text-3xl font-heading font-bold text-white">Client Obsession</h3>
+                  </div>
+                  <p className="text-neutral-400 max-w-md">Your success is our success. We partner with you at every step, offering radical transparency and unwavering dedication to your vision.</p>
                 </div>
               </div>
             </motion.div>
