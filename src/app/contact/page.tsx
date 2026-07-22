@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, MessageSquare, ArrowRight } from 'lucide-react';
 import SpecularButton from '@/components/SpecularButton';
+import TypingKeyboard from '@/components/ui/typing-keyboard';
 
 export default function ContactPage() {
   return (
@@ -35,6 +36,17 @@ export default function ContactPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-2 space-y-8"
           >
+            {/* Keyboard Animation */}
+            <div className="w-full flex justify-center items-center h-[300px] bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm rounded-3xl overflow-hidden relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 pointer-events-none" />
+              <TypingKeyboard 
+                scale={0.55} 
+                autoTypeText="HELLO... ARE YOU READY TO BUILD SOMETHING EXTRAORDINARY? LET'S GET IN TOUCH.     "
+                accentColor="#8b5cf6" 
+                secondaryAccent="#3b82f6" 
+              />
+            </div>
+
             <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm">
               <h3 className="text-2xl font-heading font-semibold text-white mb-8">Contact Information</h3>
               
