@@ -100,7 +100,7 @@ export default function ContactPage() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-10">
                     <User className="h-5 w-5 text-neutral-500 group-focus-within:text-purple-400 transition-colors" />
                   </div>
                   <input 
@@ -113,7 +113,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-10">
                     <Mail className="h-5 w-5 text-neutral-500 group-focus-within:text-purple-400 transition-colors" />
                   </div>
                   <input 
@@ -127,7 +127,7 @@ export default function ContactPage() {
               </div>
 
               <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-10">
                   <Type className="h-5 w-5 text-neutral-500 group-focus-within:text-purple-400 transition-colors" />
                 </div>
                 <input 
@@ -140,7 +140,7 @@ export default function ContactPage() {
               </div>
 
               <div className="relative group">
-                <div className="absolute top-4 left-0 pl-4 flex items-start pointer-events-none">
+                <div className="absolute top-4 left-0 pl-4 flex items-start pointer-events-none z-10">
                   <MessageSquare className="h-5 w-5 text-neutral-500 group-focus-within:text-purple-400 transition-colors" />
                 </div>
                 <textarea 
