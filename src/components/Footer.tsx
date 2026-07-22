@@ -132,8 +132,11 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-neutral-600 text-sm">
-            © {new Date().getFullYear()} AstraGG. All rights reserved.
+          <p className="text-neutral-600 text-sm flex items-center gap-1">
+            © {new Date().getFullYear()} AstraGG. Made with <span className="text-red-500">♥</span> by 
+            <a href="https://github.com/piyushrav1" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
+              piyushrav1
+            </a>
           </p>
           <div className="flex gap-6">
             <Link href="#" className="text-neutral-600 hover:text-neutral-300 transition-colors text-sm">Privacy Policy</Link>
