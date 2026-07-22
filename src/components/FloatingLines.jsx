@@ -230,12 +230,12 @@ function hexToVec3(hex) {
 }
 
 export default function FloatingLines({
-  linesGradient,
+  linesGradient = ['#000000'],
   enabledWaves = ['top', 'middle', 'bottom'],
   lineCount = [6],
   lineDistance = [5],
-  topWavePosition,
-  middleWavePosition,
+  topWavePosition = { x: 1, y: 1, z: 1 },
+  middleWavePosition = { x: 1, y: 1, z: 1 },
   bottomWavePosition = { x: 2.0, y: -0.7, rotate: -1 },
   animationSpeed = 1,
   interactive = true,
