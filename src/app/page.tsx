@@ -4,6 +4,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import Galaxy from "@/components/Galaxy";
 import WorkGlimpse from "@/components/WorkGlimpse";
+import ImpactStats from "@/components/ImpactStats";
+import FAQ from "@/components/FAQ";
 import { TestimonialsCard } from "@/components/ui/testimonials-card";
 
 const containerVariants: Variants = {
@@ -105,13 +107,23 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent z-0 pointer-events-none" />
       </main>
       
-      {/* WorkGlimpse is out of the scroll parallax to create the depth effect */}
-      <div className="relative z-20 bg-background">
+      {/* Work Glimpse Section */}
+      <section className="relative z-10 w-full mt-32">
         <WorkGlimpse />
-      </div>
-      
-      {/* Testimonials Section */}
-      <section className="relative z-20 bg-background py-24 pb-32">
+      </section>
+
+      {/* Impact Stats Section */}
+      <section className="relative z-10 w-full">
+        <ImpactStats />
+      </section>
+
+      {/* FAQ Section */}
+      <section className="relative z-10 w-full">
+        <FAQ />
+      </section>
+
+      {/* Testimonials */}
+      <section className="relative z-10 w-full py-24 mb-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold font-heading text-white mb-4">What Our Clients Say</h2>
