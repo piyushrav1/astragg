@@ -27,6 +27,8 @@ const staggerContainer: Variants = {
 };
 
 export default function AboutPage() {
+  const [activeIdx, setActiveIdx] = React.useState<number | null>(0);
+
   return (
     <main className="min-h-screen bg-background overflow-hidden selection:bg-purple-500/30">
       
@@ -59,75 +61,51 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 2. BENTO GRID PHILOSOPHY */}
-      <section className="py-24 px-6 relative">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 md:gap-6 min-h-[600px] auto-rows-[300px] md:auto-rows-auto"
-          >
-            {/* Bento Box 1 - Hero Size */}
-            <motion.div variants={fadeUpVariants} className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-neutral-900 to-black border border-white/10 rounded-[2rem] p-8 md:p-12 relative overflow-hidden group">
-              {/* Animated Background Blob */}
-              <div className="absolute -inset-x-20 -top-20 h-[300px] bg-purple-500/20 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              {/* Large Background Typography */}
-              <span className="absolute -bottom-10 -right-10 text-[15rem] font-bold text-white/[0.02] leading-none select-none group-hover:text-purple-500/[0.05] transition-colors duration-700">01</span>
-              
-              <div className="relative z-10 h-full flex flex-col justify-between">
-                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform duration-500 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]">
-                  <Rocket className="w-8 h-8" />
-                </div>
-                <div className="mt-auto pt-12">
-                  <h3 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">Relentless Innovation</h3>
-                  <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
-                    We refuse to be stagnant. We utilize bleeding-edge technologies like Next.js, Framer Motion, and Turbopack to keep you ahead of the curve. Innovation isn't a buzzword; it's our baseline.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Bento Box 2 - Small */}
-            <motion.div variants={fadeUpVariants} className="md:col-span-1 md:row-span-1 bg-black border border-white/10 rounded-[2rem] p-8 relative overflow-hidden group shadow-[inset_0_0_40px_rgba(255,255,255,0.02)]">
-              <span className="absolute -top-4 -right-4 text-[8rem] font-bold text-white/[0.02] leading-none select-none">02</span>
-              <div className="relative z-10 h-full flex flex-col justify-between">
-                <Zap className="w-8 h-8 text-blue-400 mb-6 group-hover:-translate-y-2 transition-transform duration-500" />
-                <div>
-                  <h3 className="text-2xl font-heading font-bold text-white mb-2">Performance First</h3>
-                  <p className="text-neutral-500 text-sm">Every millisecond counts. We optimize fiercely for speed.</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Bento Box 3 - Small */}
-            <motion.div variants={fadeUpVariants} className="md:col-span-1 md:row-span-1 bg-black border border-white/10 rounded-[2rem] p-8 relative overflow-hidden group shadow-[inset_0_0_40px_rgba(255,255,255,0.02)]">
-              <span className="absolute -top-4 -right-4 text-[8rem] font-bold text-white/[0.02] leading-none select-none">03</span>
-              <div className="relative z-10 h-full flex flex-col justify-between">
-                <Layers className="w-8 h-8 text-pink-400 mb-6 group-hover:-translate-y-2 transition-transform duration-500" />
-                <div>
-                  <h3 className="text-2xl font-heading font-bold text-white mb-2">Cinematic UI</h3>
-                  <p className="text-neutral-500 text-sm">Design that evokes emotion and captures attention.</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Bento Box 4 - Wide */}
-            <motion.div variants={fadeUpVariants} className="md:col-span-2 md:row-span-1 bg-gradient-to-tr from-neutral-900 to-black border border-white/10 rounded-[2rem] p-8 md:p-10 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <span className="absolute bottom-0 right-4 text-[12rem] font-bold text-white/[0.02] leading-none select-none translate-y-1/4">04</span>
-              <div className="relative z-10 h-full flex flex-col md:flex-row md:items-center justify-between gap-8">
-                <div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <Heart className="w-8 h-8 text-red-400" />
-                    <h3 className="text-3xl font-heading font-bold text-white">Client Obsession</h3>
+      {/* 2. THE DNA (Interactive Accordion) */}
+      <section className="py-24 px-6 relative border-y border-white/5 bg-black">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
+          <div className="lg:w-1/3">
+            <motion.h2 variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">Our DNA</motion.h2>
+            <motion.p variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-neutral-400 text-lg leading-relaxed">The core principles that dictate every line of code we write and every pixel we place. Hover to explore.</motion.p>
+          </div>
+          
+          <div className="lg:w-2/3 flex flex-col">
+            {[
+              { id: '01', title: 'Relentless Innovation', desc: 'We refuse to be stagnant. We utilize bleeding-edge technologies like Next.js, Framer Motion, and Turbopack to keep you ahead of the curve.', icon: Rocket, color: 'text-purple-400' },
+              { id: '02', title: 'Performance First', desc: 'Every millisecond counts. We optimize fiercely for speed, ensuring your applications load instantly and run flawlessly.', icon: Zap, color: 'text-blue-400' },
+              { id: '03', title: 'Cinematic UI', desc: 'Design that evokes emotion and captures attention. We build interfaces that feel alive, responsive, and incredibly premium.', icon: Layers, color: 'text-pink-400' },
+              { id: '04', title: 'Client Obsession', desc: 'Your success is our success. We partner with you at every step, offering radical transparency and unwavering dedication to your vision.', icon: Heart, color: 'text-red-400' },
+            ].map((item, idx) => {
+              const isActive = activeIdx === idx;
+              return (
+                <div 
+                  key={idx} 
+                  className="border-b border-white/10 py-8 cursor-pointer group"
+                  onMouseEnter={() => setActiveIdx(idx)}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-6 md:gap-12">
+                      <span className={`text-xl md:text-2xl font-bold font-mono transition-colors duration-500 ${isActive ? item.color : 'text-neutral-700'}`}>{item.id}</span>
+                      <h3 className={`text-3xl md:text-5xl font-heading font-bold transition-colors duration-500 ${isActive ? 'text-white' : 'text-neutral-600 group-hover:text-neutral-400'}`}>
+                        {item.title}
+                      </h3>
+                    </div>
+                    <div className={`transform transition-all duration-700 ${isActive ? 'rotate-180 opacity-100 scale-100' : 'rotate-0 opacity-0 scale-50'} hidden md:block`}>
+                       <item.icon className={`w-8 h-8 ${item.color}`} />
+                    </div>
                   </div>
-                  <p className="text-neutral-400 max-w-md">Your success is our success. We partner with you at every step, offering radical transparency and unwavering dedication to your vision.</p>
+                  
+                  <div className={`grid transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'grid-rows-[1fr] opacity-100 mt-6' : 'grid-rows-[0fr] opacity-0 mt-0'}`}>
+                    <div className="overflow-hidden">
+                      <p className="text-lg text-neutral-400 md:ml-[5.5rem] max-w-2xl">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          </motion.div>
+              )
+            })}
+          </div>
         </div>
       </section>
 
