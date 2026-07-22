@@ -50,7 +50,7 @@ export default function WorkGlimpse() {
   }, []);
 
   return (
-    <section ref={container} className="relative mt-24" id="work">
+    <section ref={container} className="relative" id="work">
       {/* Intro Header */}
       <div className="sticky top-0 h-[40vh] flex flex-col items-center justify-center -z-10 bg-background">
         <h2 className="font-heading text-5xl md:text-7xl font-bold text-white mb-6 leading-tight text-center">

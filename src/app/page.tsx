@@ -107,57 +107,60 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent z-0 pointer-events-none" />
       </main>
       
-      {/* Work Glimpse Section */}
-      <section className="relative z-10 w-full mt-32">
-        <WorkGlimpse />
-      </section>
+      {/* Main content wrapper to create depth effect over the hero section */}
+      <div className="relative z-20 bg-background w-full">
+        {/* Work Glimpse Section */}
+        <section className="w-full">
+          <WorkGlimpse />
+        </section>
 
-      {/* Impact Stats Section */}
-      <section className="relative z-10 w-full">
-        <ImpactStats />
-      </section>
+        {/* Impact Stats Section */}
+        <section className="w-full">
+          <ImpactStats />
+        </section>
 
-      {/* FAQ Section */}
-      <section className="relative z-10 w-full">
-        <FAQ />
-      </section>
+        {/* FAQ Section */}
+        <section className="w-full">
+          <FAQ />
+        </section>
 
-      {/* Testimonials */}
-      <section className="relative z-10 w-full py-24 mb-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-heading text-white mb-4">What Our Clients Say</h2>
-            <p className="text-neutral-400 max-w-xl mx-auto">Hear from the innovative brands that trust us to bring their digital visions to life.</p>
+        {/* Testimonials */}
+        <section className="w-full py-24 mb-32">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold font-heading text-white mb-4">What Our Clients Say</h2>
+              <p className="text-neutral-400 max-w-xl mx-auto">Hear from the innovative brands that trust us to bring their digital visions to life.</p>
+            </div>
+            
+            <div className="flex justify-center">
+              <TestimonialsCard 
+                width={800}
+                autoPlay={true}
+                items={[
+                  {
+                    id: 1,
+                    title: "Incredible Design",
+                    description: "AstraGG completely transformed our brand. The attention to detail is unmatched, and the final product exceeded all of our expectations.",
+                    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=800&q=80"
+                  },
+                  {
+                    id: 2,
+                    title: "Lightning Fast Performance",
+                    description: "Our new web application is not only beautiful but incredibly performant. Our user retention has skyrocketed since the launch.",
+                    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
+                  },
+                  {
+                    id: 3,
+                    title: "Highly Professional Team",
+                    description: "The team at AstraGG delivered exactly what we needed, ahead of schedule. Their communication and workflow are flawless.",
+                    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80"
+                  }
+                ]} 
+              />
+            </div>
           </div>
-          
-          <div className="flex justify-center">
-            <TestimonialsCard 
-              width={800}
-              autoPlay={true}
-              items={[
-                {
-                  id: 1,
-                  title: "Incredible Design",
-                  description: "AstraGG completely transformed our brand. The attention to detail is unmatched, and the final product exceeded all of our expectations.",
-                  image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=800&q=80"
-                },
-                {
-                  id: 2,
-                  title: "Lightning Fast Performance",
-                  description: "Our new web application is not only beautiful but incredibly performant. Our user retention has skyrocketed since the launch.",
-                  image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
-                },
-                {
-                  id: 3,
-                  title: "Highly Professional Team",
-                  description: "The team at AstraGG delivered exactly what we needed, ahead of schedule. Their communication and workflow are flawless.",
-                  image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80"
-                }
-              ]} 
-            />
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 }
