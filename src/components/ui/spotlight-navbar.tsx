@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+
 import { animate } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Sparkles } from "lucide-react"; // Import a cool icon for the logo
+import AnimatedButton from "./animated-button";
 
 export interface NavItem {
     label: string;
@@ -183,9 +185,12 @@ export function SpotlightNavbar({
 
             {/* CTA */}
             <div className="hidden md:flex items-center">
-                <button className="px-6 py-2.5 rounded-full bg-white text-black font-semibold text-sm hover:bg-neutral-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                <AnimatedButton 
+                    className="bg-white text-black hover:bg-neutral-200 shadow-[0_0_15px_rgba(255,255,255,0.2)] rounded-full text-sm font-semibold border-none [--shine:rgba(0,0,0,0.3)] dark:[--shine:rgba(0,0,0,0.3)] dark:bg-white dark:text-black"
+                    onClick={() => console.log('clicked')}
+                >
                     Get Started
-                </button>
+                </AnimatedButton>
             </div>
 
             <style jsx>{`
