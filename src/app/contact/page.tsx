@@ -153,8 +153,9 @@ export default function ContactPage() {
               </div>
 
               <div className="pt-2">
-                <button type="submit" className="w-auto block text-left">
+                <div className="w-auto block text-left">
                   <SpecularButton
+                    type="submit"
                     size="lg"
                     radius={12}
                     tint="#8b5cf6"
@@ -174,7 +175,7 @@ export default function ContactPage() {
                   >
                     Send Message
                   </SpecularButton>
-                </button>
+                </div>
               </div>
             </motion.form>
 
