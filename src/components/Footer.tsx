@@ -128,10 +128,6 @@ export default function Footer() {
                   <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#5865F2] transition-all duration-300 group-hover:w-full" />
                 </a>
               </li>
-              <li className="text-neutral-500 text-sm mt-4">
-                123 Innovation Drive<br />
-                Tech City, TC 10101
-              </li>
             </ul>
           </div>
 

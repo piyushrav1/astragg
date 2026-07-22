@@ -180,7 +180,7 @@ export default function ContactPage() {
             </motion.form>
 
             {/* Direct Contact Links */}
-            <motion.div variants={itemVariants} className="mt-16 pt-8 border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div variants={itemVariants} className="mt-16 pt-8 border-t border-white/5 grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <p className="text-xs text-neutral-600 uppercase tracking-widest mb-2 font-semibold">Direct Email</p>
                 <a href="mailto:hi@piyushravi.in" className="flex items-center gap-2 text-neutral-300 hover:text-white transition-colors group">
@@ -194,13 +194,6 @@ export default function ContactPage() {
                   <svg className="w-4 h-4 text-neutral-500 group-hover:text-[#5865F2] transition-colors" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 127.14 96.36"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1,105.25,105.25,0,0,0,32.19-16.14c2.64-27.38-4.51-51.11-19.32-72.15ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53s5-12.74,11.43-12.74S96.2,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
                   Open Ticket
                 </a>
-              </div>
-              <div>
-                <p className="text-xs text-neutral-600 uppercase tracking-widest mb-2 font-semibold">Location</p>
-                <div className="flex items-start gap-2 text-neutral-300">
-                  <MapPin className="w-4 h-4 text-neutral-500 mt-1" />
-                  <span className="text-sm">Innovation Drive<br/>Tech City, 10101</span>
-                </div>
               </div>
             </motion.div>
 
