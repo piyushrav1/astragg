@@ -19,22 +19,22 @@ const ProfileCardComponent = ({
   avatarUrl = '<Placeholder for avatar URL>',
   iconUrl = '<Placeholder for icon URL>',
   grainUrl = '<Placeholder for grain URL>',
-  innerGradient,
+  innerGradient = undefined,
   behindGlowEnabled = true,
-  behindGlowColor,
-  behindGlowSize,
+  behindGlowColor = undefined,
+  behindGlowSize = undefined,
   className = '',
   enableTilt = true,
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
-  miniAvatarUrl,
+  miniAvatarUrl = undefined,
   name = 'Javi A. Torres',
   title = 'Software Engineer',
   handle = 'javicodes',
   status = 'Online',
   contactText = 'Contact',
   showUserInfo = true,
-  onContactClick
+  onContactClick = undefined
 }) => {
   const wrapRef = useRef(null);
   const shellRef = useRef(null);
