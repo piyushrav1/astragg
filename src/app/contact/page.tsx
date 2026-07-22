@@ -1,173 +1,195 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Mail, MapPin, MessageSquare, ArrowRight } from 'lucide-react';
+import { motion, Variants } from 'framer-motion';
+import { Mail, MapPin, ArrowRight } from 'lucide-react';
 import SpecularButton from '@/components/SpecularButton';
 import TypingKeyboard from '@/components/ui/typing-keyboard';
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
 export default function ContactPage() {
   return (
-    <main className="min-h-screen pt-32 pb-24 px-6 md:px-12 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-blue-900/10 rounded-full blur-[100px] pointer-events-none -z-10" />
-
-      <div className="max-w-7xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 md:mb-24 text-center md:text-left"
-        >
-          <h1 className="text-5xl md:text-7xl font-bold font-heading mb-6 text-transparent bg-clip-text bg-gradient-to-r from-neutral-100 to-neutral-500">
-            Let's start a project.
-          </h1>
-          <p className="text-xl text-neutral-400 max-w-2xl leading-relaxed">
-            Have an idea? We'd love to hear about it. Drop us a line and we'll get back to you as soon as possible.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-8">
-          {/* Contact Info (Left) */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2 space-y-8"
+    <main className="min-h-screen bg-background flex flex-col lg:flex-row">
+      
+      {/* LEFT PANEL: The Visual Hook (Sticky on Desktop) */}
+      <section className="relative w-full lg:w-1/2 lg:h-screen lg:sticky lg:top-0 flex flex-col justify-center overflow-hidden border-b lg:border-b-0 lg:border-r border-white/5">
+        
+        {/* Deep ambient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-950 via-purple-950/20 to-blue-950/20 z-0" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-transparent to-transparent z-0 pointer-events-none blur-3xl" />
+        
+        <div className="relative z-10 px-8 pt-32 pb-16 lg:px-16 lg:py-24 h-full flex flex-col justify-between">
+          
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="space-y-4"
           >
-            {/* Keyboard Animation */}
-            <div className="w-full flex justify-center items-center min-h-[400px] bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm rounded-3xl overflow-visible relative p-4">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 pointer-events-none rounded-3xl" />
-              <TypingKeyboard 
-                scale={0.45} 
-                autoTypeText="HELLO... ARE YOU READY TO BUILD SOMETHING EXTRAORDINARY? LET'S GET IN TOUCH.     "
-                accentColor="#8b5cf6" 
-                secondaryAccent="#3b82f6" 
-              />
-            </div>
-
-            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm">
-              <h3 className="text-2xl font-heading font-semibold text-white mb-8">Contact Information</h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5 text-neutral-300" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-neutral-500 mb-1">Email Us</p>
-                    <a href="mailto:hello@astragg.com" className="text-lg text-white hover:text-neutral-300 transition-colors">
-                      hello@astragg.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5 text-neutral-300" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-neutral-500 mb-1">Visit Us</p>
-                    <p className="text-lg text-white">
-                      123 Innovation Drive<br />
-                      Tech City, TC 10101
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                    <MessageSquare className="w-5 h-5 text-neutral-300" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-neutral-500 mb-1">Socials</p>
-                    <div className="flex gap-4 mt-1">
-                      <a href="#" className="text-neutral-400 hover:text-white transition-colors">Twitter</a>
-                      <a href="#" className="text-neutral-400 hover:text-white transition-colors">LinkedIn</a>
-                      <a href="#" className="text-neutral-400 hover:text-white transition-colors">Instagram</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <motion.h1 
+              variants={itemVariants}
+              className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white leading-none"
+            >
+              Let's create <br/>
+              <span className="italic font-light text-neutral-400">something</span> <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">extraordinary.</span>
+            </motion.h1>
+            <motion.p 
+              variants={itemVariants}
+              className="text-lg md:text-xl text-neutral-500 max-w-md"
+            >
+              Whether it's a new brand identity, a complex web application, or a complete digital overhaul—we're ready.
+            </motion.p>
           </motion.div>
 
-          {/* Contact Form (Right) */}
           <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="lg:col-span-3"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+            className="w-full flex justify-center items-center mt-12 mb-8 lg:mb-0 min-h-[300px]"
           >
-            <form className="p-8 md:p-10 rounded-3xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="text-sm text-neutral-400 ml-1">Full Name</label>
+            <TypingKeyboard 
+              scale={0.5} 
+              autoTypeText="INITIATING SECURE CONNECTION... READY TO RECEIVE PROJECT PARAMETERS. AWAITING INPUT...     "
+              accentColor="#8b5cf6" 
+              secondaryAccent="#3b82f6" 
+            />
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* RIGHT PANEL: The Action Area (Scrollable) */}
+      <section className="w-full lg:w-1/2 min-h-screen bg-background relative z-10">
+        <div className="px-8 py-16 lg:px-24 lg:py-32 max-w-2xl mx-auto">
+          
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div variants={itemVariants} className="mb-12">
+              <h2 className="text-3xl font-heading font-semibold text-white mb-2">Project Inquiry</h2>
+              <p className="text-neutral-500">Fill out the form below and we'll get back to you within 24 hours.</p>
+            </motion.div>
+
+            <motion.form variants={itemVariants} className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="relative group">
                   <input 
                     type="text" 
                     id="name"
-                    placeholder="John Doe"
-                    className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all"
+                    required
+                    className="w-full bg-transparent border-b border-white/10 py-3 text-white placeholder-transparent focus:outline-none focus:border-purple-500 transition-colors peer"
+                    placeholder="Name"
                   />
+                  <label htmlFor="name" className="absolute left-0 top-3 text-neutral-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-purple-400 peer-valid:-top-4 peer-valid:text-xs peer-valid:text-purple-400">
+                    Full Name
+                  </label>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-sm text-neutral-400 ml-1">Email Address</label>
+
+                <div className="relative group">
                   <input 
                     type="email" 
                     id="email"
-                    placeholder="john@example.com"
-                    className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all"
+                    required
+                    className="w-full bg-transparent border-b border-white/10 py-3 text-white placeholder-transparent focus:outline-none focus:border-purple-500 transition-colors peer"
+                    placeholder="Email"
                   />
+                  <label htmlFor="email" className="absolute left-0 top-3 text-neutral-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-purple-400 peer-valid:-top-4 peer-valid:text-xs peer-valid:text-purple-400">
+                    Email Address
+                  </label>
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="subject" className="text-sm text-neutral-400 ml-1">Subject</label>
+              <div className="relative group">
                 <input 
                   type="text" 
                   id="subject"
-                  placeholder="How can we help you?"
-                  className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all"
+                  required
+                  className="w-full bg-transparent border-b border-white/10 py-3 text-white placeholder-transparent focus:outline-none focus:border-purple-500 transition-colors peer"
+                  placeholder="Subject"
                 />
+                <label htmlFor="subject" className="absolute left-0 top-3 text-neutral-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-purple-400 peer-valid:-top-4 peer-valid:text-xs peer-valid:text-purple-400">
+                  Subject
+                </label>
               </div>
 
-              <div className="flex flex-col gap-2 mb-4">
-                <label htmlFor="message" className="text-sm text-neutral-400 ml-1">Message</label>
+              <div className="relative group">
                 <textarea 
                   id="message"
-                  rows={5}
-                  placeholder="Tell us about your project, timeline, and budget..."
-                  className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-white/20 transition-all resize-none"
+                  required
+                  rows={4}
+                  className="w-full bg-transparent border-b border-white/10 py-3 text-white placeholder-transparent focus:outline-none focus:border-purple-500 transition-colors peer resize-none"
+                  placeholder="Message"
                 />
+                <label htmlFor="message" className="absolute left-0 top-3 text-neutral-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-purple-400 peer-valid:-top-4 peer-valid:text-xs peer-valid:text-purple-400">
+                  Project Details
+                </label>
               </div>
 
-              <div className="self-end">
+              <div className="pt-4">
                 <SpecularButton
                   size="lg"
-                  radius={16}
-                  tint="#ffffff"
-                  tintOpacity={0.05}
-                  blur={4}
+                  radius={8}
+                  tint="#8b5cf6"
+                  tintOpacity={0.1}
+                  blur={8}
                   textColor="#ffffff"
-                  lineColor="#ffffff"
-                  baseColor="#333333"
+                  lineColor="#8b5cf6"
+                  baseColor="#111111"
                   intensity={1}
-                  shineSize={8}
+                  shineSize={12}
                   shineFade={30}
-                  thickness={1}
-                  speed={0.3}
+                  thickness={1.5}
+                  speed={0.4}
                   followMouse
-                  proximity={200}
+                  proximity={250}
                   onClick={() => console.log('Form submitted')}
                 >
                   Send Message
                 </SpecularButton>
               </div>
-            </form>
+            </motion.form>
+
+            {/* Direct Contact Links */}
+            <motion.div variants={itemVariants} className="mt-20 pt-10 border-t border-white/5 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <p className="text-xs text-neutral-600 uppercase tracking-widest mb-2 font-semibold">Direct Email</p>
+                <a href="mailto:hello@astragg.com" className="flex items-center gap-2 text-neutral-300 hover:text-white transition-colors group">
+                  <Mail className="w-4 h-4 text-neutral-500 group-hover:text-purple-400 transition-colors" />
+                  hello@astragg.com
+                </a>
+              </div>
+              <div>
+                <p className="text-xs text-neutral-600 uppercase tracking-widest mb-2 font-semibold">HQ Location</p>
+                <div className="flex items-start gap-2 text-neutral-300">
+                  <MapPin className="w-4 h-4 text-neutral-500 mt-1" />
+                  <span>123 Innovation Drive<br/>Tech City, 10101</span>
+                </div>
+              </div>
+            </motion.div>
+
           </motion.div>
         </div>
-      </div>
+      </section>
+
     </main>
   );
 }
