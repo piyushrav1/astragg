@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Mail, MapPin, ArrowRight, User, MessageSquare, Type } from 'lucide-react';
 import SpecularButton from '@/components/SpecularButton';
 import TypingKeyboard from '@/components/ui/typing-keyboard';
 
@@ -88,83 +88,93 @@ export default function ContactPage() {
               <p className="text-neutral-500">Fill out the form below and we'll get back to you within 24 hours.</p>
             </motion.div>
 
-            <motion.form variants={itemVariants} className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+            <motion.form 
+              variants={itemVariants} 
+              className="space-y-6" 
+              action="https://formsubmit.co/hi@piyushravi.in" 
+              method="POST"
+            >
+              {/* Optional: Disable Captcha for a smoother experience */}
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_subject" value="New Astragg Project Inquiry!" />
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <User className="h-5 w-5 text-neutral-500 group-focus-within:text-purple-400 transition-colors" />
+                  </div>
                   <input 
                     type="text" 
-                    id="name"
+                    name="name"
                     required
-                    className="w-full bg-transparent border-b border-white/10 py-3 text-white placeholder-transparent focus:outline-none focus:border-purple-500 transition-colors peer"
-                    placeholder="Name"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-neutral-500 focus:outline-none focus:border-purple-500/50 focus:shadow-[0_0_20px_rgba(168,85,247,0.2)] backdrop-blur-md transition-all"
+                    placeholder="Full Name"
                   />
-                  <label htmlFor="name" className="absolute left-0 top-3 text-neutral-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-purple-400 peer-valid:-top-4 peer-valid:text-xs peer-valid:text-purple-400">
-                    Full Name
-                  </label>
                 </div>
 
                 <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <Mail className="h-5 w-5 text-neutral-500 group-focus-within:text-purple-400 transition-colors" />
+                  </div>
                   <input 
                     type="email" 
-                    id="email"
+                    name="email"
                     required
-                    className="w-full bg-transparent border-b border-white/10 py-3 text-white placeholder-transparent focus:outline-none focus:border-purple-500 transition-colors peer"
-                    placeholder="Email"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-neutral-500 focus:outline-none focus:border-purple-500/50 focus:shadow-[0_0_20px_rgba(168,85,247,0.2)] backdrop-blur-md transition-all"
+                    placeholder="Email Address"
                   />
-                  <label htmlFor="email" className="absolute left-0 top-3 text-neutral-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-purple-400 peer-valid:-top-4 peer-valid:text-xs peer-valid:text-purple-400">
-                    Email Address
-                  </label>
                 </div>
               </div>
 
               <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Type className="h-5 w-5 text-neutral-500 group-focus-within:text-purple-400 transition-colors" />
+                </div>
                 <input 
                   type="text" 
-                  id="subject"
+                  name="subject"
                   required
-                  className="w-full bg-transparent border-b border-white/10 py-3 text-white placeholder-transparent focus:outline-none focus:border-purple-500 transition-colors peer"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-neutral-500 focus:outline-none focus:border-purple-500/50 focus:shadow-[0_0_20px_rgba(168,85,247,0.2)] backdrop-blur-md transition-all"
                   placeholder="Subject"
                 />
-                <label htmlFor="subject" className="absolute left-0 top-3 text-neutral-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-purple-400 peer-valid:-top-4 peer-valid:text-xs peer-valid:text-purple-400">
-                  Subject
-                </label>
               </div>
 
               <div className="relative group">
+                <div className="absolute top-4 left-0 pl-4 flex items-start pointer-events-none">
+                  <MessageSquare className="h-5 w-5 text-neutral-500 group-focus-within:text-purple-400 transition-colors" />
+                </div>
                 <textarea 
-                  id="message"
+                  name="message"
                   required
-                  rows={4}
-                  className="w-full bg-transparent border-b border-white/10 py-3 text-white placeholder-transparent focus:outline-none focus:border-purple-500 transition-colors peer resize-none"
-                  placeholder="Message"
+                  rows={5}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-white placeholder-neutral-500 focus:outline-none focus:border-purple-500/50 focus:shadow-[0_0_20px_rgba(168,85,247,0.2)] backdrop-blur-md transition-all resize-none"
+                  placeholder="Tell us about your project, timeline, and budget..."
                 />
-                <label htmlFor="message" className="absolute left-0 top-3 text-neutral-500 text-sm transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-purple-400 peer-valid:-top-4 peer-valid:text-xs peer-valid:text-purple-400">
-                  Project Details
-                </label>
               </div>
 
-              <div className="pt-4">
-                <SpecularButton
-                  size="lg"
-                  radius={8}
-                  tint="#8b5cf6"
-                  tintOpacity={0.1}
-                  blur={8}
-                  textColor="#ffffff"
-                  lineColor="#8b5cf6"
-                  baseColor="#111111"
-                  intensity={1}
-                  shineSize={12}
-                  shineFade={30}
-                  thickness={1.5}
-                  speed={0.4}
-                  followMouse
-                  proximity={250}
-                  onClick={() => console.log('Form submitted')}
-                >
-                  Send Message
-                </SpecularButton>
+              <div className="pt-2">
+                <button type="submit" className="w-auto block text-left">
+                  <SpecularButton
+                    size="lg"
+                    radius={12}
+                    tint="#8b5cf6"
+                    tintOpacity={0.1}
+                    blur={8}
+                    textColor="#ffffff"
+                    lineColor="#8b5cf6"
+                    baseColor="#111111"
+                    intensity={1}
+                    shineSize={12}
+                    shineFade={30}
+                    thickness={1.5}
+                    speed={0.4}
+                    followMouse
+                    proximity={250}
+                    onClick={() => {}}
+                  >
+                    Send Message
+                  </SpecularButton>
+                </button>
               </div>
             </motion.form>
 
