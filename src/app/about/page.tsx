@@ -5,6 +5,7 @@ import { motion, Variants } from 'framer-motion';
 import { Code2, PenTool, Rocket, Layers, Zap, Heart } from 'lucide-react';
 import SpecularButton from '@/components/SpecularButton';
 import Link from 'next/link';
+import { StaggeredGrid } from '@/components/ui/staggered-grid';
 
 const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -61,52 +62,19 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 2. THE DNA (Interactive Accordion) */}
-      <section className="py-24 px-6 relative border-y border-white/5 bg-black">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
-          <div className="lg:w-1/3">
-            <motion.h2 variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">Our DNA</motion.h2>
-            <motion.p variants={fadeUpVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-neutral-400 text-lg leading-relaxed">The core principles that dictate every line of code we write and every pixel we place. Hover to explore.</motion.p>
-          </div>
-          
-          <div className="lg:w-2/3 flex flex-col">
-            {[
-              { id: '01', title: 'Relentless Innovation', desc: 'We refuse to be stagnant. We utilize bleeding-edge technologies like Next.js, Framer Motion, and Turbopack to keep you ahead of the curve.', icon: Rocket, color: 'text-purple-400' },
-              { id: '02', title: 'Performance First', desc: 'Every millisecond counts. We optimize fiercely for speed, ensuring your applications load instantly and run flawlessly.', icon: Zap, color: 'text-blue-400' },
-              { id: '03', title: 'Cinematic UI', desc: 'Design that evokes emotion and captures attention. We build interfaces that feel alive, responsive, and incredibly premium.', icon: Layers, color: 'text-pink-400' },
-              { id: '04', title: 'Client Obsession', desc: 'Your success is our success. We partner with you at every step, offering radical transparency and unwavering dedication to your vision.', icon: Heart, color: 'text-red-400' },
-            ].map((item, idx) => {
-              const isActive = activeIdx === idx;
-              return (
-                <div 
-                  key={idx} 
-                  className="border-b border-white/10 py-8 cursor-pointer group"
-                  onMouseEnter={() => setActiveIdx(idx)}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-6 md:gap-12">
-                      <span className={`text-xl md:text-2xl font-bold font-mono transition-colors duration-500 ${isActive ? item.color : 'text-neutral-700'}`}>{item.id}</span>
-                      <h3 className={`text-3xl md:text-5xl font-heading font-bold transition-colors duration-500 ${isActive ? 'text-white' : 'text-neutral-600 group-hover:text-neutral-400'}`}>
-                        {item.title}
-                      </h3>
-                    </div>
-                    <div className={`transform transition-all duration-700 ${isActive ? 'rotate-180 opacity-100 scale-100' : 'rotate-0 opacity-0 scale-50'} hidden md:block`}>
-                       <item.icon className={`w-8 h-8 ${item.color}`} />
-                    </div>
-                  </div>
-                  
-                  <div className={`grid transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'grid-rows-[1fr] opacity-100 mt-6' : 'grid-rows-[0fr] opacity-0 mt-0'}`}>
-                    <div className="overflow-hidden">
-                      <p className="text-lg text-neutral-400 md:ml-[5.5rem] max-w-2xl">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
+      {/* 2. THE DNA (Staggered Grid) */}
+      <section className="relative border-y border-white/5 bg-black overflow-hidden">
+        <StaggeredGrid 
+          images={Array(21).fill('')}
+          centerText="DNA"
+          showFooter={false}
+          bentoItems={[
+            { id: '01', title: 'Innovation', subtitle: 'Bleeding edge', description: 'Next.js, Framer Motion, and Turbopack to keep you ahead of the curve.', icon: <Rocket className="w-5 h-5 text-white" /> },
+            { id: '02', title: 'Performance', subtitle: 'Speed', description: 'Every millisecond counts. We optimize fiercely for speed.', icon: <Zap className="w-5 h-5 text-white" /> },
+            { id: '03', title: 'Aesthetics', subtitle: 'Cinematic UI', description: 'Design that evokes emotion and captures attention.', icon: <Layers className="w-5 h-5 text-white" /> },
+            { id: '04', title: 'Partnership', subtitle: 'Client Obsession', description: 'Your success is our success. Radical transparency.', icon: <Heart className="w-5 h-5 text-white" /> },
+          ]}
+        />
       </section>
 
       {/* 3. THE APPROACH (Timeline) */}
