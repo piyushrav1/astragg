@@ -79,17 +79,12 @@ export default function Home() {
               <MorphText 
                 words={["CREATE", "DESIGN", "DEVELOP", "SCALE"]} 
                 interval={2500}
+                subtext="We are a premium digital service provider specializing in modern web development, UI/UX design, and digital marketing."
                 fontSize="clamp(2rem, 10vw, 8rem)"
                 textClassName="text-white drop-shadow-2xl font-heading"
+                subtextClassName="font-sans normal-case tracking-normal max-w-2xl text-lg md:text-2xl text-neutral-300 mt-6"
               />
             </motion.div>
-            
-            <motion.p 
-              variants={itemVariants}
-              className="font-sans text-lg md:text-2xl text-neutral-300 max-w-2xl mb-10"
-            >
-              We are a premium digital service provider specializing in modern web development, UI/UX design, and digital marketing.
-            </motion.p>
             
             <motion.div 
               variants={itemVariants}

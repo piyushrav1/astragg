@@ -149,20 +149,20 @@ export function MorphText({
             filter: blur(20px);
             transform: translate(-50%, -50%) scale(0.8);
           }
-          5% {
+          ${(1.5 / words.length) * 10}% {
             opacity: 0.5;
             filter: blur(10px);
           }
-          15%, 35% {
+          ${(1.5 / words.length) * 30}%, ${(1.5 / words.length) * 70}% {
             opacity: 1;
             filter: blur(0px);
             transform: translate(-50%, -50%) scale(1);
           }
-          45% {
+          ${(1.5 / words.length) * 90}% {
             opacity: 0.5;
             filter: blur(10px);
           }
-          50%, 100% {
+          ${(1.5 / words.length) * 100}%, 100% {
             opacity: 0;
             filter: blur(20px);
             transform: translate(-50%, -50%) scale(1.2);
