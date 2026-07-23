@@ -5,8 +5,17 @@ import { motion, Variants } from 'framer-motion';
 import { Code2, PenTool, Rocket, Layers, Zap, Heart } from 'lucide-react';
 import SpecularButton from '@/components/SpecularButton';
 import Link from 'next/link';
-import { StaggeredGrid } from '@/components/ui/staggered-grid';
-import WebgpuHero from '@/components/WebgpuHero';
+import dynamic from "next/dynamic";
+
+const StaggeredGrid = dynamic(() => import("@/components/ui/staggered-grid").then(m => m.StaggeredGrid), { 
+  ssr: false,
+  loading: () => <div className="h-screen w-full flex items-center justify-center text-white">Loading grid...</div>
+});
+
+const WebgpuHero = dynamic(() => import("@/components/WebgpuHero"), { 
+  ssr: false,
+  loading: () => <div className="h-[90vh] w-full bg-black" />
+});
 
 const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 30 },

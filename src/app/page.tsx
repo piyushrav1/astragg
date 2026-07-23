@@ -2,7 +2,12 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
-import Galaxy from "@/components/Galaxy";
+import dynamic from "next/dynamic";
+
+const Galaxy = dynamic(() => import("@/components/Galaxy"), { 
+  ssr: false, 
+  loading: () => <div className="absolute inset-0 bg-black" /> 
+});
 import WorkGlimpse from "@/components/WorkGlimpse";
 import ImpactStats from "@/components/ImpactStats";
 import FAQ from "@/components/FAQ";
