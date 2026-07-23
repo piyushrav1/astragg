@@ -77,7 +77,10 @@ export default function Home() {
           >
             <motion.div variants={itemVariants} className="mb-6 w-full flex justify-center">
               <MorphText 
-                words={["CREATE", "DESIGN", "DEVELOP", "SCALE"]} 
+                words={["INNOVATE", "BUILD", "SHIP"]} 
+                interval={2500}
+                subtext="Move fast. Break things."
+                fontSize="clamp(2rem, 10vw, 8rem)"
                 textClassName="text-white drop-shadow-2xl font-heading"
               />
             </motion.div>
