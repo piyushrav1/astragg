@@ -78,9 +78,6 @@ export default function Home() {
             <motion.div variants={itemVariants} className="mb-6 w-full flex justify-center">
               <MorphText 
                 words={["CREATE", "DESIGN", "DEVELOP", "SCALE"]} 
-                interval={2500}
-                subtext="Transforming Ideas into Digital Reality"
-                fontSize="clamp(2rem, 10vw, 8rem)"
                 textClassName="text-white drop-shadow-2xl font-heading"
               />
             </motion.div>

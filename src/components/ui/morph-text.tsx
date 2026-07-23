@@ -108,7 +108,7 @@ export function MorphText({
                 transform: "translate(-50%, -50%)",
                 opacity: 0,
                 whiteSpace: "nowrap",
-                animationName: "morph-word-rotate",
+                animationName: `morph-word-rotate-${uid}`,
                 animationTimingFunction: "ease-in-out",
                 animationIterationCount: "infinite",
                 animationFillMode: "both",
@@ -143,26 +143,26 @@ export function MorphText({
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
 
-        @keyframes morph-word-rotate {
+        @keyframes morph-word-rotate-${uid} {
           0% {
             opacity: 0;
             filter: blur(20px);
             transform: translate(-50%, -50%) scale(0.8);
           }
-          5% {
+          ${(100 / words.length) * 0.1}% {
             opacity: 0.5;
             filter: blur(10px);
           }
-          15%, 35% {
+          ${(100 / words.length) * 0.3}%, ${(100 / words.length) * 0.7}% {
             opacity: 1;
             filter: blur(0px);
             transform: translate(-50%, -50%) scale(1);
           }
-          45% {
+          ${(100 / words.length) * 0.9}% {
             opacity: 0.5;
             filter: blur(10px);
           }
-          50%, 100% {
+          ${100 / words.length}%, 100% {
             opacity: 0;
             filter: blur(20px);
             transform: translate(-50%, -50%) scale(1.2);
