@@ -51,8 +51,7 @@ export default function WorkGlimpse() {
 
   return (
     <section ref={container} className="relative" id="work">
-      {/* Intro Header */}
-      <div className="h-[40vh] flex flex-col items-center justify-center bg-background">
+      <div className="h-[40vh] flex flex-col items-center justify-center bg-background relative z-10">
         <h2 className="font-heading text-5xl md:text-7xl font-bold text-white mb-6 leading-tight text-center">
           A Glimpse Into <br /> 
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 to-neutral-600">Our Universe</span>
@@ -62,23 +61,23 @@ export default function WorkGlimpse() {
         </p>
       </div>
 
-      <div className="pb-[10vh] px-4 md:px-12">
-        {projects.map((project, i) => {
-          const targetScale = 1 - ( (projects.length - i) * 0.05);
-          return (
-            <ParallaxCard
-              key={project.id}
-              i={i}
-              title={project.title}
-              category={project.category}
-              color={project.color}
-              image={project.image}
-              progress={scrollYProgress}
-              range={[i * 0.25, 1]}
-              targetScale={targetScale}
-            />
-          );
-        })}
+      <div className="h-[400vh] w-full relative">
+        <div className="sticky top-0 h-screen w-full overflow-hidden" style={{ perspective: "1000px" }}>
+          {projects.map((project, i) => {
+            return (
+              <ParallaxCard
+                key={project.id}
+                i={i}
+                title={project.title}
+                category={project.category}
+                color={project.color}
+                image={project.image}
+                progress={scrollYProgress}
+                totalCards={projects.length}
+              />
+            );
+          })}
+        </div>
       </div>
     </section>
   );
