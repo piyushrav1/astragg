@@ -12,6 +12,8 @@ import WorkGlimpse from "@/components/WorkGlimpse";
 import ImpactStats from "@/components/ImpactStats";
 import FAQ from "@/components/FAQ";
 import { TestimonialsCard } from "@/components/ui/testimonials-card";
+import { MaskedAvatars } from "@/components/ui/masked-avatars";
+import { MorphText } from "@/components/ui/morph-text";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -73,15 +75,12 @@ export default function Home() {
             animate="visible"
             className="flex flex-col items-center justify-center pointer-events-auto"
           >
-            <motion.h1 
-              variants={itemVariants}
-              className="font-heading text-5xl md:text-7xl font-bold tracking-tight text-white mb-6"
-            >
-              Transforming Ideas into <br className="hidden md:block"/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-100 to-neutral-500 drop-shadow-lg animate-text-gradient bg-[length:200%_auto]">
-                Digital Reality
-              </span>
-            </motion.h1>
+            <motion.div variants={itemVariants} className="mb-6 w-full flex justify-center">
+              <MorphText 
+                words={["CREATE", "DESIGN", "DEVELOP", "SCALE"]} 
+                textClassName="text-white drop-shadow-2xl font-heading"
+              />
+            </motion.div>
             
             <motion.p 
               variants={itemVariants}
@@ -104,6 +103,35 @@ export default function Home() {
               >
                 Get a Quote
               </button>
+            </motion.div>
+
+            {/* Social Proof with Masked Avatars */}
+            <motion.div
+              variants={itemVariants}
+              className="mt-16 flex flex-col items-center gap-4"
+            >
+              <div className="flex items-center gap-4">
+                <MaskedAvatars 
+                  size={50} 
+                  avatars={[
+                    { avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=faces", name: "Sarah" },
+                    { avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=faces", name: "David" },
+                    { avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces", name: "Elena" },
+                    { avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces", name: "James" },
+                    { avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces", name: "Chloe" },
+                  ]}
+                />
+                <div className="flex flex-col text-left">
+                  <div className="flex gap-1 text-yellow-500 text-sm">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                        <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clipRule="evenodd" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-sm text-neutral-400 font-medium mt-1">Trusted by 100+ clients</p>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </motion.div>

@@ -2,11 +2,10 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { Code2, PenTool, Layers } from 'lucide-react';
+import { Code2, PenTool, Rocket, Layers, Zap, Heart } from 'lucide-react';
 import SpecularButton from '@/components/SpecularButton';
 import Link from 'next/link';
 import dynamic from "next/dynamic";
-import { MaskedAvatars } from '@/components/ui/masked-avatars';
 
 
 const WebgpuHero = dynamic(() => import("@/components/WebgpuHero"), { 
@@ -43,45 +42,6 @@ export default function AboutPage() {
       {/* 1. HERO SECTION (WebGPU) */}
       <section className="relative w-full overflow-hidden border-b border-white/10">
         <WebgpuHero />
-      </section>
-
-      {/* 2. THE CORE TEAM (Masked Avatars) */}
-      <section className="py-24 px-6 border-b border-white/10 relative overflow-hidden">
-        <div className="absolute inset-0 bg-purple-900/5 blur-[100px] pointer-events-none" />
-        <div className="max-w-7xl mx-auto flex flex-col items-center">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="mb-16 text-center"
-          >
-            <motion.h2 variants={fadeUpVariants} className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">The Core DNA</motion.h2>
-            <motion.p variants={fadeUpVariants} className="text-neutral-400 max-w-2xl mx-auto">
-              Meet the masterminds orchestrating your digital success. Hover to interact.
-            </motion.p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="w-full flex justify-center py-12"
-          >
-            <MaskedAvatars 
-              size={120} 
-              movement={0.5}
-              transition={0.3}
-              avatars={[
-                { avatar: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=200&h=200&fit=crop&crop=faces", name: "ALEX" },
-                { avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces", name: "SARAH" },
-                { avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&h=200&fit=crop&crop=faces", name: "JAMES" },
-                { avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces", name: "CHLOE" },
-              ]}
-            />
-          </motion.div>
-        </div>
       </section>
 
 
