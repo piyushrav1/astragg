@@ -6,6 +6,7 @@ import { Code2, PenTool, Rocket, Layers, Zap, Heart } from 'lucide-react';
 import SpecularButton from '@/components/SpecularButton';
 import Link from 'next/link';
 import { StaggeredGrid } from '@/components/ui/staggered-grid';
+import WebgpuHero from '@/components/WebgpuHero';
 
 const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -33,33 +34,9 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-background overflow-hidden selection:bg-purple-500/30">
       
-      {/* 1. HERO SECTION */}
-      <section className="relative pt-40 pb-20 md:pt-52 md:pb-32 px-6">
-        {/* Ambient Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[40vw] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none -z-10" />
-        
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="text-center md:text-left flex flex-col items-center md:items-start"
-          >
-            <motion.p variants={fadeUpVariants} className="text-purple-400 font-medium tracking-widest uppercase mb-6 text-sm">
-              The AstraGG Ethos
-            </motion.p>
-            <motion.h1 variants={fadeUpVariants} className="text-5xl md:text-7xl lg:text-[7rem] font-heading font-bold leading-[0.95] tracking-tighter text-white mb-8">
-              We don't just build. <br className="hidden md:block" />
-              <span className="italic font-light text-neutral-400 font-sans tracking-normal">We engineer</span> <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 bg-[length:200%_auto] animate-gradient">
-                digital experiences.
-              </span>
-            </motion.h1>
-            <motion.p variants={fadeUpVariants} className="text-lg md:text-2xl text-neutral-400 max-w-2xl leading-relaxed">
-              AstraGG is an elite collective of digital architects. We blend striking cinematic aesthetics with ruthless engineering to create products that dominate the modern web.
-            </motion.p>
-          </motion.div>
-        </div>
+      {/* 1. HERO SECTION (WebGPU) */}
+      <section className="relative w-full overflow-hidden border-b border-white/10">
+        <WebgpuHero />
       </section>
 
       {/* 2. THE DNA (Staggered Grid) */}
