@@ -7,10 +7,6 @@ import SpecularButton from '@/components/SpecularButton';
 import Link from 'next/link';
 import dynamic from "next/dynamic";
 
-const StaggeredGrid = dynamic(() => import("@/components/ui/staggered-grid").then(m => m.StaggeredGrid), { 
-  ssr: false,
-  loading: () => <div className="h-screen w-full flex items-center justify-center text-white">Loading grid...</div>
-});
 
 const WebgpuHero = dynamic(() => import("@/components/WebgpuHero"), { 
   ssr: false,
@@ -48,20 +44,6 @@ export default function AboutPage() {
         <WebgpuHero />
       </section>
 
-      {/* 2. THE DNA (Staggered Grid) */}
-      <section className="relative border-y border-white/5 bg-black overflow-hidden">
-        <StaggeredGrid 
-          images={Array(21).fill('')}
-          centerText="DNA"
-          showFooter={false}
-          bentoItems={[
-            { id: '01', title: 'Innovation', subtitle: 'Bleeding edge', description: 'Next.js, Framer Motion, and Turbopack to keep you ahead of the curve.', icon: <Rocket className="w-5 h-5 text-white" /> },
-            { id: '02', title: 'Performance', subtitle: 'Speed', description: 'Every millisecond counts. We optimize fiercely for speed.', icon: <Zap className="w-5 h-5 text-white" /> },
-            { id: '03', title: 'Aesthetics', subtitle: 'Cinematic UI', description: 'Design that evokes emotion and captures attention.', icon: <Layers className="w-5 h-5 text-white" /> },
-            { id: '04', title: 'Partnership', subtitle: 'Client Obsession', description: 'Your success is our success. Radical transparency.', icon: <Heart className="w-5 h-5 text-white" /> },
-          ]}
-        />
-      </section>
 
       {/* 3. THE APPROACH (Timeline) */}
       <section className="py-24 px-6">
