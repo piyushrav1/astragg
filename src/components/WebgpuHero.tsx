@@ -32,10 +32,10 @@ void main() {
 
   // Scanline effect
   float scanLine = smoothstep(0.0, 0.05, abs(vUv.y - uProgress));
-  vec4 redOverlay = vec4(1.0, 0.0, 0.0, 1.0) * (1.0 - scanLine) * 0.4;
+  vec4 purpleOverlay = vec4(0.55, 0.36, 0.96, 1.0) * (1.0 - scanLine) * 0.4;
   
   // Mix color with a simple brightness/contrast pass
-  vec4 finalColor = color + redOverlay;
+  vec4 finalColor = color + purpleOverlay;
   
   gl_FragColor = vec4(finalColor.rgb, 1.0);
 }
@@ -86,8 +86,8 @@ const Scene = () => {
 };
 
 export const WebgpuHero = () => {
-  const titleWords = 'Build Your Dreams'.split(' ');
-  const subtitle = 'AI-powered creativity for the next generation.';
+  const titleWords = 'We Engineer Experiences'.split(' ');
+  const subtitle = 'AstraGG is an elite collective of digital architects.';
   const [visibleWords, setVisibleWords] = useState(0);
   const [subtitleVisible, setSubtitleVisible] = useState(false);
   const [delays, setDelays] = useState<number[]>([]);
