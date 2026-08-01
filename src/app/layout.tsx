@@ -3,6 +3,8 @@ import { Space_Grotesk, Inter } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
 import { SpotlightNavbar } from "@/components/ui/spotlight-navbar";
 import Footer from "@/components/Footer";
+import Preloader from "@/components/Preloader";
+import ScrollProgress from "@/components/ScrollProgress";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -31,9 +33,11 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground relative overflow-x-hidden">
+        <Preloader />
         <SpotlightNavbar />
         <SmoothScroll>{children}</SmoothScroll>
         <Footer />
+        <ScrollProgress />
       </body>
     </html>
   );
