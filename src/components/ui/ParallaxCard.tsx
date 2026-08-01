@@ -85,7 +85,7 @@ export function ParallaxCard({
         transformOrigin: "center bottom",
         zIndex: totalCards - i,
       }}
-      className="flex flex-col md:flex-row h-[500px] md:h-[60vh] w-[90%] md:w-[70%] max-w-5xl rounded-[1.5rem] overflow-hidden shadow-2xl shadow-black/80"
+      className="flex flex-col md:flex-row h-[500px] md:h-[60vh] w-[90%] md:w-[70%] max-w-5xl rounded-[1.5rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.8)] border border-white/10"
     >
       {/* Left Col: Info */}
       <div className={`flex flex-col justify-between p-8 md:p-12 w-full md:w-1/2 bg-gradient-to-br ${color}`}>
@@ -112,7 +112,7 @@ export function ParallaxCard({
           className="absolute inset-0 bg-cover bg-center w-full h-full"
           style={{ backgroundImage: `url(${image})` }}
         />
-        <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
     </motion.div>

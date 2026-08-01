@@ -57,9 +57,8 @@ export default function Home() {
               saturation={0}
               mouseRepulsion={true}
               repulsionStrength={2}
-              twinkleIntensity={0.3}
               rotationSpeed={0.1}
-              transparent={true}
+              transparent={false}
             />
           </div>
         </div>

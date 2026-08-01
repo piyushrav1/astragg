@@ -28,46 +28,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-10 lg:py-16 relative z-10">
-        {/* Top Section: CTA */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 mb-16">
-          <div className="max-w-2xl">
-            <h2 className="font-heading text-4xl sm:text-6xl font-bold tracking-tight text-white mb-6">
-              Let's build the <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-300 to-neutral-600">future together.</span>
-            </h2>
-            <p className="text-neutral-400 text-lg max-w-md">
-              We're a digital agency crafting premium experiences for forward-thinking brands.
-            </p>
-          </div>
-          
-          <SpecularButton
-            size="lg"
-            radius={18}
-            tint="#ffffff"
-            tintOpacity={0.07}
-            blur={4}
-            textColor="#ffffff"
-            lineColor="#ffffff"
-            baseColor="#525252"
-            intensity={1}
-            shineSize={10}
-            shineFade={40}
-            thickness={1}
-            speed={0.35}
-            followMouse
-            proximity={250}
-            autoAnimate
-            onClick={() => console.log('clicked')}
-          >
-            Start a Project
-          </SpecularButton>
-        </div>
-
-        {/* Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-12" />
-
-        {/* Bottom Section: Links & Info */}
+      <div className="max-w-7xl mx-auto px-6 py-10 lg:py-12 relative z-10">
+        {/* Main Section: Links & Info */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-8">
           
           {/* Brand Col */}
